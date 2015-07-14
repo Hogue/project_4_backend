@@ -7,6 +7,7 @@ var bathroomSchema = new mongoose.Schema({
   longitude: Number,
   latitude: Number,
   title: String,
+  place_id: String
 });
 
 // We bind the Location model to the LocationSchema

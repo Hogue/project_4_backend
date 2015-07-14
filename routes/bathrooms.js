@@ -10,8 +10,25 @@ router.get('/', function(req, res) {
     if (err) {
       res.sendStatus(404);
     }
-    res.json(bathroomList);
     res.status(200);
+    res.json(bathroomList);
+
+  });
+});
+
+
+router.post('/', function(req, res) {
+  Bathroom.create({
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    title: req.body.formatted_address,
+    place_id: req.body.place_id
+  }, function(err){
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(201);
+    }
   });
 });
 
