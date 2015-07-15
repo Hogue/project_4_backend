@@ -16,12 +16,12 @@ router.get('/', function(req, res) {
   });
 });
 
-
 router.post('/', function(req, res) {
   Bathroom.create({
+    id: req.body.id,
     longitude: req.body.longitude,
     latitude: req.body.latitude,
-    title: req.body.formatted_address,
+    title: req.body.title,
     place_id: req.body.place_id
   }, function(err){
     if(err) {
